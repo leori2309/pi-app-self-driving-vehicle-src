@@ -1,22 +1,23 @@
-# lcd_display.py
 import sys
-sys.path.append('/I2C-LCD')
-import lcddriver
+sys.path.append('/home/knxpi/I2C-LCD')  # Der Pfad zum I2C-LCD-Verzeichnis
 
-#import I2C_LCD_driver
-from time import sleep
+import lcddriver  # Importiere das lcddriver-Modul
 
-mylcd = lcddriver.lcd()
+# Initialisiere das LCD
+lcd = lcddriver.lcd()
 
-def display_hello_world():
-    while True:
-        mylcd.lcd_display_string("Hello, World!!!!", 1)
-        mylcd.lcd_display_string("RPi + LCD", 2)
+# Zeige "Hello World" auf dem LCD an
+lcd.lcd_display_string("Hello World", 1)  # Zeigt auf der ersten Zeile des LCD an
 
-        sleep(1)
-        mylcd.lcd_clear()
-        sleep(1)
+# Warte eine Sekunde
+import time
+time.sleep(1)
 
-if __name__ == "__main__":
-    print("Start Script")
-    display_hello_world()
+# Zeige "Raspberry Pi" auf der zweiten Zeile an
+lcd.lcd_display_string("Raspberry Pi", 2)  # Zeigt auf der zweiten Zeile des LCD an
+
+# Warte eine weitere Sekunde
+time.sleep(10)
+
+# Lösche das Display
+lcd.lcd_clear()

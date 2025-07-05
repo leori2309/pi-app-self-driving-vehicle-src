@@ -7,13 +7,11 @@ if __name__ == "__main__":
     lcdDisplay = LcdDriver()
     ultraSoundSensor = UltraSoundSensor()
 
-    i = 0
-    while i < 10:
+    while True:
         distance = ultraSoundSensor.measure_distance()
         print(f"Distance: {distance:.2f} cm")
         lcdDisplay.display_message(f"Dist: {distance:.2f} cm", "Sensor Active")
-        time.sleep(1)
-        i += 1
+        time.sleep(0.1)
 
     lcdDisplay.clear_display()
     print("Ending main")

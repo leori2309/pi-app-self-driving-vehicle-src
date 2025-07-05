@@ -1,0 +1,44 @@
+import RPi.GPIO as GPIO
+import time
+
+class UltraSoundSensor:
+
+    def __init__(self):
+        # GPIO-Modus festlegen (BCM-Nummerierung)
+        GPIO.setmode(GPIO.BCM)
+
+        # Pinbelegung
+        self.TRIG = 17  # Trigger-Pin
+        self.ECHO = 27  # Echo-Pin
+
+        # Setze die Pins als Ausgang und Eingang
+        GPIO.setup(self.TRIG, GPIO.OUT)
+        GPIO.setup(self.ECHO, GPIO.IN)
+
+
+    def measure_distance(self) -> float:
+        # Setze Trigger auf LOW (sicherstellen, dass der Pin auf LOW ist)
+        GPIO.output(self.TRIG, GPIO.LOW)
+        time.sleep(2)
+
+        # Trigger-Signal erzeugen (10 Mikrosekunden HIGH)
+        GPIO.output(self.TRIG, GPIO.HIGH)
+        time.sleep(0.00001)  # 10 Mikrosekunden
+        GPIO.output(self.TRIG, GPIO.LOW)
+
+        # Warte auf den Beginn des Echo-Signals
+        while GPIO.input(self.ECHO) == GPIO.LOW:
+            pulse_start = time.time()
+
+        # Warte auf das Ende des Echo-Signals
+        while GPIO.input(self.ECHO) == GPIO.HIGH:
+            pulse_end = time.time()
+
+        # Berechne die Zeitdifferenz
+        pulse_duration = pulse_end - pulse_start
+
+        # Berechne die Entfernung: Entfernung = (Dauer der Schallwelle * Schallgeschwindigkeit) / 2
+        # Schallgeschwindigkeit = 34300 cm/s
+        distance = pulse_duration * 34300 / 2  # Die Division durch 2, weil die Zeit für Hin- und Rückweg ist
+
+        return distance

@@ -19,7 +19,7 @@ class UltraSoundSensor:
     def measure_distance(self) -> float:
         # Setze Trigger auf LOW (sicherstellen, dass der Pin auf LOW ist)
         GPIO.output(self.TRIG, GPIO.LOW)
-        time.sleep(2)
+        time.sleep(0.1)
 
         # Trigger-Signal erzeugen (10 Mikrosekunden HIGH)
         GPIO.output(self.TRIG, GPIO.HIGH)

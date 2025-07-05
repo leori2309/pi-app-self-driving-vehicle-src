@@ -11,7 +11,6 @@ if __name__ == "__main__":
         distance = ultraSoundSensor.measure_distance()
         print(f"Distance: {distance:.2f} cm")
         lcdDisplay.display_message(f"Dist: {distance:.2f} cm", "Sensor Active")
-        time.sleep(0.1)
 
     lcdDisplay.clear_display()
     print("Ending main")

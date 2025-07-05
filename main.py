@@ -14,4 +14,5 @@ def display_hello_world():
         sleep(1)
 
 if __name__ == "__main__":
+    print("Start Script")
     display_hello_world()

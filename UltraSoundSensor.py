@@ -45,9 +45,9 @@ class UltraSoundSensor:
             pass
         pulse_end = time.time()
 
-        distance = (pulse_end - pulse_start) * SPEED_OF_SOUND_CM_PER_SEC / 2
+        distance = round((pulse_end - pulse_start) * SPEED_OF_SOUND_CM_PER_SEC / 2, 2)
         self._cache.append(distance)
 
         # Log
-        print(f"Current Distance: {distance:.2f} cm | Last 5 values: {self._cache[-5:]}")
+        print(f"Current Distance: {distance} cm | Avg value: {self._get_rolling_average()} | Last 5 values: {self._cache[-5:]}")
         return self._get_rolling_average() if use_rolling_average else distance

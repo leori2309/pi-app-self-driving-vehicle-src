@@ -5,7 +5,7 @@ import lcddriver  # Importiere das lcddriver-Modul
 import time
 
 # Initialisiere das LCD
-lcd = lcddriver.lcd()
+lcd = lcddriver.Lcd()
 
 # Zeige "Hello World" auf dem LCD an
 print('Checkpoint1')

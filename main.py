@@ -1,6 +1,6 @@
 import time
 from LcdDriver import LcdDriver
-from ultra_sound_sensor import UltraSoundSensor
+from UltraSoundSensor import UltraSoundSensor
 
 if __name__ == "__main__":
     print("Starting main")

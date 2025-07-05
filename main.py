@@ -1,8 +1,12 @@
 # lcd_display.py
-import I2C_LCD_driver
+import sys
+sys.path.append('/I2C-LCD')
+import lcddriver
+
+#import I2C_LCD_driver
 from time import sleep
 
-mylcd = I2C_LCD_driver.lcd()
+mylcd = lcddriver.lcd()
 
 def display_hello_world():
     while True:

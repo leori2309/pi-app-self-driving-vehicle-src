@@ -8,16 +8,18 @@ import time
 lcd = lcddriver.lcd()
 
 # Zeige "Hello World" auf dem LCD an
+print('Checkpoint1')
 lcd.lcd_display_string("Hello World", 1)  # Zeigt auf der ersten Zeile des LCD an
 lcd.lcd_display_string("OK", 2)
 
 # Warte eine Sekunde
-
+print('Checkpoint2')
 time.sleep(5)
 
 # Zeige "Raspberry Pi" auf der zweiten Zeile an
+print('Checkpoint3')
 lcd.lcd_display_string("Raspberry Pi", 2)  # Zeigt auf der zweiten Zeile des LCD an
-
+print('Checkpoint4')
 # Warte eine weitere Sekunde
 time.sleep(5)
 

@@ -6,17 +6,11 @@ IN1 = 23  # GPIO26
  
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(IN1, GPIO.OUT)
- 
- 
-try:
-    # Motor vorwärts mit 75% Geschwindigkeit
+
+while True:
     GPIO.output(IN1, GPIO.HIGH)
-    # pwm.ChangeDutyCycle(100)
-    print("Starting motor forward")
-    time.sleep(1000)
-except KeyboardInterrupt:
-    print("Motor stopped by user")
-finally:
+    print("HIGH")
+    time.sleep(5)
     GPIO.output(IN1, GPIO.LOW)
-    print("Stopping motor")
-    GPIO.cleanup()
+    print("LOW")
+    time.sleep(5)

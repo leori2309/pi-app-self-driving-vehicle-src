@@ -22,14 +22,7 @@ if __name__ == "__main__":
         ena=18   # GPIO18 (PWM)
     )
 
-
-    print("DRIVE")
-    
-    time.sleep(2)
-    
-    time.sleep(2)
     motorController.stop()
-    print("DRIVE DONE")
 
     while True:
 
@@ -38,6 +31,7 @@ if __name__ == "__main__":
             motorController.drive_backward(speed=100)
         else:
             motorController.drive_forward(speed=100)
+            time.sleep(3)
         
         lcdDisplay.display_message(f"mm: {distance_mm}", "")
 

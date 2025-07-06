@@ -36,5 +36,6 @@ try:
     print("Stopping motor")
  
 finally:
+    print("Cleaning up GPIO")
     pwm.stop()
     GPIO.cleanup()

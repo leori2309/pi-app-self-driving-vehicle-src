@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import time
  
 # Pin Definitionen
-IN1 = 23  # GPIO23
-IN2 = 24  # GPIO24
+IN1 = 16  # GPIO23
+IN2 = 26  # GPIO24
 ENA = 18  # GPIO18 (PWM)
  
 GPIO.setmode(GPIO.BCM)

@@ -18,8 +18,10 @@ try:
     for i in range(10):
         GPIO.output(IN1, GPIO.HIGH)
         GPIO.output(IN2, GPIO.LOW)
-        pwm.ChangeDutyCycle((i + 1) * 10)
-        print(f"Motor at {(i + 1) * 10} speed")
+        pwm_speed = 80
+        # pwm_speed = (i + 1) * 10
+        pwm.ChangeDutyCycle(pwm_speed)
+        print(f"Motor at {pwm_speed} speed")
         time.sleep(2)
  
     # Motor rückwärts mit 75% Geschwindigkeit

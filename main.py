@@ -21,12 +21,13 @@ if __name__ == "__main__":
         in2=26,  # GPIO24
         ena=18   # GPIO18 (PWM)
     )
-
+    print("DRIVE")
     motorController.drive_forward(speed=100)
     time.sleep(2)
     motorController.drive_backward(speed=100)
     time.sleep(2)
     motorController.stop()
+    print("DRIVE DONE")
 
     while True:
         distance_mm = ultraSoundSensor1.measure_distance()

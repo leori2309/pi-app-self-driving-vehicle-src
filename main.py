@@ -16,7 +16,7 @@ if __name__ == "__main__":
     )
 
     while True:
-        distance_mm = ultraSoundSensor1.measure_distance(use_rolling_average=True)
+        distance_mm = ultraSoundSensor1.measure_distance()
         lcdDisplay.display_message(f"mm: {distance_mm}", "")
         time.sleep(2)
 

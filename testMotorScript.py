@@ -18,19 +18,22 @@ try:
     # Motor vorwärts mit 75% Geschwindigkeit
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
-    pwm.ChangeDutyCycle(75)
+    # pwm.ChangeDutyCycle(100)
+    print("Starting motor forward")
     time.sleep(5)
  
     # Motor rückwärts mit 75% Geschwindigkeit
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
-    pwm.ChangeDutyCycle(75)
+    print("Starting motor backward")
+    # pwm.ChangeDutyCycle(100)
     time.sleep(5)
  
     # Motor stoppen
-    pwm.ChangeDutyCycle(0)
+    # pwm.ChangeDutyCycle(0)
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
+    print("Stopping motor")
  
 finally:
     pwm.stop()

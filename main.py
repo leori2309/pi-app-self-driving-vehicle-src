@@ -29,9 +29,10 @@ if __name__ == "__main__":
         distance_mm = ultraSoundSensor1.measure_distance()
         if distance_mm <= 200:
             motorController.drive_backward(speed=100)
+            time.sleep(3)
         else:
             motorController.drive_forward(speed=100)
-            time.sleep(3)
+            
         
         lcdDisplay.display_message(f"mm: {distance_mm}", "")
 

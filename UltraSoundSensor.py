@@ -35,8 +35,8 @@ class UltraSoundSensor:
     
     def _get_rolling_average(self) -> float:
         if len(self._cache) < 5:
-            return sum(self._cache) / len(self._cache)
-        return sum(self._cache[-5:]) / 5
+            return round(sum(self._cache) / len(self._cache), 0)
+        return round(sum(self._cache[-5:]) / 5, 0)
 
 
     def _log_distance(self, distance_mm: float, timestamp: time.time) -> None:
@@ -60,4 +60,4 @@ class UltraSoundSensor:
         self._cache.append(distance_mm)
         self._log_distance(distance_mm, pulse_end)
 
-        return self._get_rolling_average() if use_rolling_average else distance_mm
+        return distance_mm, self._get_rolling_average()

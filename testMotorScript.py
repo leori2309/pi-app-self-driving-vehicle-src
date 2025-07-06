@@ -15,19 +15,12 @@ pwm = GPIO.PWM(ENA, 1000)  # PWM mit 1kHz
 pwm.start(0)
  
 try:
-    # Motor vorwärts mit 75% Geschwindigkeit
-    GPIO.output(IN1, GPIO.HIGH)
-    GPIO.output(IN2, GPIO.LOW)
-    pwm.ChangeDutyCycle(100)
-    print("Starting motor forward")
-    time.sleep(5)
-
-    # Motor vorwärts mit 10% Geschwindigkeit
-    GPIO.output(IN1, GPIO.HIGH)
-    GPIO.output(IN2, GPIO.LOW)
-    pwm.ChangeDutyCycle(10)
-    print("Starting motor forward")
-    time.sleep(5)
+    for i in range(10):
+        GPIO.output(IN1, GPIO.HIGH)
+        GPIO.output(IN2, GPIO.LOW)
+        pwm.ChangeDutyCycle((i + 1) * 10)
+        print(f"Motor at {i + 1}0% speed")
+        time.sleep(5)
  
     # Motor rückwärts mit 75% Geschwindigkeit
     # GPIO.output(IN1, GPIO.LOW)

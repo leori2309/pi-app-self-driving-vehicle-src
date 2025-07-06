@@ -5,7 +5,8 @@ from DatabaseLogger import DatabaseLogger
 
 if __name__ == "__main__":
     databaseLogger = DatabaseLogger()
-    DatabaseLogger._create_tables()
+    databaseLogger._create_tables()
+    
     lcdDisplay = LcdDriver()
 
     ultraSoundSensor1 = UltraSoundSensor(

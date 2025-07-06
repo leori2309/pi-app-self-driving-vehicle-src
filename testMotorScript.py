@@ -20,7 +20,7 @@ try:
         GPIO.output(IN2, GPIO.LOW)
         pwm.ChangeDutyCycle((i + 1) * 10)
         print(f"Motor at {i + 1}0% speed")
-        time.sleep(5)
+        time.sleep(1)
  
     # Motor rückwärts mit 75% Geschwindigkeit
     # GPIO.output(IN1, GPIO.LOW)
